@@ -2,6 +2,33 @@
 version: "3.8"
 services:
   movies:
+    image: lonasic/movies:latest
+    ports:
+      - 91:80
+    deploy:
+      replicas: 3
+  train:
+    image: lonasic/train:latest
+    ports:
+      - 92:80
+    deploy:
+      replicas: 3
+  recharge:
+    image: lonasic/recharge:latest
+    ports:
+      - 93:80
+    deploy:
+      replicas: 3
+  dth:
+    image: lonasic/dth:latest
+    ports:
+      - 94:80
+    deploy:
+      replicas: 3
+---
+version: "3.8"
+services:
+  movies:
     image: srinadhgoud/paytmmovies:latest
     ports:
       - 91:80
